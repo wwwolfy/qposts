@@ -4,9 +4,11 @@ import { HttpService } from './HttpService';
 
 class PostApiService extends HttpService {
   public readonly postsUrl = '/posts';
-  public readonly postUrl = (id: string) => `/posts/${id}`;
+  public readonly getPostUrl = (id: string) => `/posts/${id}`;
 
   public readonly commentsUrl = '/comments';
+  public readonly getCommentsForPostUrl = (postId: string) =>
+    `/posts/${postId}/comments`;
 
   public getPosts = async () => {
     return this.instance.get<PostDTO[]>(this.postsUrl);
@@ -18,6 +20,10 @@ class PostApiService extends HttpService {
 
   public getComments = async () => {
     return this.instance.get<Comment[]>(this.commentsUrl);
+  };
+
+  public getCommentsForPost = async (url: string) => {
+    return this.instance.get<Comment[]>(url);
   };
 }
 

@@ -1,0 +1,28 @@
+@import './config.scss';
+
+// typography
+
+%h1 {
+  font-size: map-get($font-sizes, font-size-24);
+  font-weight: bold;
+  line-height: 120%;
+}
+
+%h5 {
+  font-size: map-get($font-sizes, font-size-16);
+  font-weight: normal;
+  line-height: 100%;
+  font-style: italic;
+}
+
+%body {
+  font-size: map-get($font-sizes, font-size-14);
+  font-weight: normal;
+  line-height: 100%;
+}
+
+%caption-bold {
+  ffont-size: map-get($font-sizes, font-size-12);
+  font-weight: normal;
+  line-height: 100%;
+}

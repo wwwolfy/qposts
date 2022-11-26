@@ -7,6 +7,6 @@ export interface PostDTO {
 }
 
 export interface Post extends PostDTO {
-  author: string;
-  comments: Comment[];
+  author?: string;
+  comments?: Comment[];
 }

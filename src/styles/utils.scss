@@ -1,0 +1,13 @@
+@import './config.scss';
+
+.margin-bottom-4 {
+  margin-bottom: map-get($spacing, spacing-4);
+}
+
+.margin-bottom-24 {
+  margin-bottom: map-get($spacing, spacing-24);
+}
+
+.margin-bottom-48 {
+  margin-bottom: map-get($spacing, spacing-48);
+}

@@ -5,7 +5,7 @@ import { userApiService } from '../services/UserApiService';
 import { convertArrayToMap } from '../utils/convertingData';
 import { Comment } from '../types/Comment';
 
-const postDataFetcher = () => {
+const postsDataFetcher = () => {
   return Promise.all([
     postApiService.getPosts(),
     postApiService.getComments(),
@@ -25,7 +25,7 @@ export const convertCommentsArrayToMap = (
 };
 
 export const usePosts = () => {
-  const { data, isValidating } = useSWR('fetchPosts', postDataFetcher);
+  const { data, isValidating, error } = useSWR('fetchPosts', postsDataFetcher);
   const postsData = useMemo(() => {
     if (data) {
       const [posts, comments, users] = data;
@@ -44,6 +44,7 @@ export const usePosts = () => {
 
   return {
     posts: postsData,
-    isValidating,
+    isLoading: isValidating,
+    error,
   };
 };

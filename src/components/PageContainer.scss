@@ -1,0 +1,7 @@
+@import '../styles/config.scss';
+
+.page-container {
+  padding: map-get($spacing, spacing-64) map-get($spacing, spacing-24);
+  max-width: $container-width;
+  margin: 0 auto;
+}

@@ -3,7 +3,7 @@ import { HttpService } from './HttpService';
 
 class UserApiService extends HttpService {
   public readonly usersUrl = '/users';
-  public readonly userUrl = (id: string) => `/users/${id}`;
+  public readonly getUserUrl = (id: string) => `/users/${id}`;
 
   public getAllUsers = async () => {
     return this.instance.get<User[]>(this.usersUrl);
