@@ -3,6 +3,8 @@ import { Input } from '../components/Input';
 import { PageContainer } from '../components/PageContainer';
 import { PostDetail } from '../components/PostDetail';
 import { usePosts } from '../hooks/usePosts';
+import { Message } from '../components/Message';
+import { MessageType } from '../types/enums/MessageType';
 
 const Posts = ({ test }: { test: string }) => {
   const { posts, isLoading, error } = usePosts();
@@ -10,8 +12,11 @@ const Posts = ({ test }: { test: string }) => {
   const onSearchHandler = (searchString: string) => {
     setSearchString(searchString);
   };
-  if (isLoading) return <h1>Loading...</h1>;
-  if (error) return <h1>Oooops, something crushed</h1>;
+  if (isLoading) return <Message>Loading...</Message>;
+  if (error)
+    return (
+      <Message messageType={MessageType.ERROR}>Something went wrong</Message>
+    );
 
   const filteredPosts = posts
     ? searchString
@@ -22,9 +27,9 @@ const Posts = ({ test }: { test: string }) => {
     : [];
   return (
     <PageContainer>
-      <div className="search-field">
+      <div className="margin-bottom-48">
         <Input
-          placeholder="search"
+          placeholder="Search by author"
           name="search"
           onChange={onSearchHandler}
           value={searchString}
@@ -35,7 +40,7 @@ const Posts = ({ test }: { test: string }) => {
           <PostDetail post={post} key={post.id} linkTo={`/posts/${post.id}`} />
         ))
       ) : (
-        <h2>No Posts Found</h2>
+        <Message>No Data Found</Message>
       )}
     </PageContainer>
   );

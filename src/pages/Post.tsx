@@ -1,19 +1,25 @@
 import { useParams } from 'react-router-dom';
+import { Message } from '../components/Message';
 import { PageContainer } from '../components/PageContainer';
 import { PostDetail } from '../components/PostDetail';
 import { usePost } from '../hooks/usePost';
+import { MessageType } from '../types/enums/MessageType';
 
 const Post = () => {
   const params = useParams();
   const { post, isLoading, error } = usePost(params.id as string);
-  if (isLoading) return <h1>Loading...</h1>;
-  if (error) return <h1>Something went wrong</h1>;
+  if (isLoading) return <Message>Loading...</Message>;
+  if (error)
+    return (
+      <Message messageType={MessageType.ERROR}>Something went wrong</Message>
+    );
+
   return post ? (
     <PageContainer>
       <PostDetail post={post} />
     </PageContainer>
   ) : (
-    <h1>Post not found</h1>
+    <Message>No post found</Message>
   );
 };
 
