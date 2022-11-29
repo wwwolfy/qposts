@@ -1,4 +1,5 @@
 import React from 'react';
+import { withHelloMessage } from '../hoc/withHelloMessage';
 import './Input.scss';
 
 interface IInputProps {
@@ -13,7 +14,7 @@ interface IInputProps {
   type?: string;
 }
 
-export const Input = (props: IInputProps) => {
+const Input = (props: IInputProps) => {
   const { name, value, isDisabled, type } = props;
   const { placeholder } = props;
   const { onChange, onBlur, onFocus, onKeyDown } = props;
@@ -37,3 +38,6 @@ export const Input = (props: IInputProps) => {
     />
   );
 };
+
+export default withHelloMessage(Input, 'Input');
+

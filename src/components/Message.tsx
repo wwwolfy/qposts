@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { withHelloMessage } from '../hoc/withHelloMessage';
 import { MessageType } from '../types/enums/MessageType';
 import './Message.scss';
 
@@ -7,7 +8,7 @@ interface IMessageProps {
   messageType?: MessageType;
 }
 
-export const Message = ({
+const Message = ({
   children,
   messageType = MessageType.INFO,
 }: IMessageProps) => {
@@ -21,3 +22,5 @@ export const Message = ({
     </div>
   );
 };
+
+export default withHelloMessage(Message, 'Message');

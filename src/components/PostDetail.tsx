@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { withHelloMessage } from '../hoc/withHelloMessage';
 import { Post } from '../types/Post';
 import './PostDetail.scss';
 
@@ -7,7 +8,7 @@ interface IPostProps {
   linkTo?: string;
 }
 
-export const PostDetail = ({ post, linkTo }: IPostProps) => {
+const PostDetail = ({ post, linkTo }: IPostProps) => {
   return (
     <div className="margin-bottom-48">
       <h5 className="post__author">{post.author}</h5>
@@ -35,3 +36,5 @@ export const PostDetail = ({ post, linkTo }: IPostProps) => {
     </div>
   );
 };
+
+export default withHelloMessage(PostDetail, 'PostDetail');

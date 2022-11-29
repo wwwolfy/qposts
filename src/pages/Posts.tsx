@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { Input } from '../components/Input';
-import { PageContainer } from '../components/PageContainer';
-import { PostDetail } from '../components/PostDetail';
+import Input from '../components/Input';
+import PageContainer from '../components/PageContainer';
+import PostDetail from '../components/PostDetail';
 import { usePosts } from '../hooks/usePosts';
-import { Message } from '../components/Message';
+import Message from '../components/Message';
 import { MessageType } from '../types/enums/MessageType';
+import { withHelloMessage } from '../hoc/withHelloMessage';
 
-const Posts = ({ test }: { test: string }) => {
+const Posts = () => {
   const { posts, isLoading, error } = usePosts();
   const [searchString, setSearchString] = useState('');
   const onSearchHandler = (searchString: string) => {
@@ -46,4 +47,4 @@ const Posts = ({ test }: { test: string }) => {
   );
 };
 
-export default Posts;
+export default withHelloMessage(Posts, 'PostsPage');

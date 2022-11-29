@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { Message } from '../components/Message';
-import { PageContainer } from '../components/PageContainer';
-import { PostDetail } from '../components/PostDetail';
+import Message from '../components/Message';
+import PageContainer from '../components/PageContainer';
+import PostDetail from '../components/PostDetail';
+import { withHelloMessage } from '../hoc/withHelloMessage';
 import { usePost } from '../hooks/usePost';
 import { MessageType } from '../types/enums/MessageType';
 
@@ -23,4 +24,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default withHelloMessage(Post, 'PostPage');
