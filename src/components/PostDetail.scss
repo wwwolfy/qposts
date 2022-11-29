@@ -1,0 +1,23 @@
+@import '../styles/extends.scss';
+
+.post {
+  &__author {
+    @extend %h5;
+  }
+
+  &__heading {
+    @extend %h1;
+  }
+
+  &__anchor-heading {
+    @extend %h1;
+    color: map-get($colors, blue);
+
+    &:hover {
+      color: map-get($colors, light-blue);
+    }
+  }
+  &__comment {
+    width: 65%;
+  }
+}

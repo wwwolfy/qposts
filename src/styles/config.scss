@@ -1,0 +1,31 @@
+$container-width: 1200px;
+
+$colors: (
+  white: #fff,
+  red: #ff0000,
+  black: #000,
+  light-blue: #23a8f2,
+  blue: #1b76bb,
+  grey: #7f7f7f,
+  dark-grey: #424242,
+);
+
+$spacing: (
+  spacing-0: 0,
+  spacing-4: 4px,
+  spacing-8: 8px,
+  spacing-16: 16px,
+  spacing-24: 24px,
+  spacing-48: 48px,
+  spacing-64: 64px,
+  spacing-72: 72px,
+);
+
+$font-sizes: (
+  font-size-10: 10px,
+  font-size-12: 12px,
+  font-size-14: 14px,
+  font-size-16: 16px,
+  font-size-24: 24px,
+  font-size-32: 32px,
+);

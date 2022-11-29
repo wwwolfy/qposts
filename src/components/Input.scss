@@ -1,0 +1,20 @@
+@import '../styles/config.scss';
+
+.input {
+  height: 40px;
+  display: inline-flex;
+  border: 2px solid map-get($colors, dark-grey);
+  padding: 0 map-get($spacing, spacing-8);
+  border-radius: map-get($spacing, spacing-8);
+  color: map-get($colors, dark-grey);
+  font-size: 16px;
+
+  &::placeholder {
+    color: map-get($colors, grey);
+    font-size: 16px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

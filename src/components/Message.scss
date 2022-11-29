@@ -1,0 +1,11 @@
+@import '../styles/extends.scss';
+
+.message {
+  @extend %h1;
+  text-align: center;
+  margin-top: 200px;
+
+  &--error {
+    color: map-get($colors, red);
+  }
+}
